@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.cominixo.signcopy.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "AbstractSignBlockMixin",
+    "SignBlockEntityAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

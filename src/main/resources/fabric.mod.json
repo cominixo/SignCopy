@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "signcopy",
+  "version": "${version}",
+  "name": "SignCopy",
+  "description": "A mod that allows you to copy text from signs.",
+  "authors": [
+    "cominixo"
+  ],
+  "icon": "assets/signcopy/icon.png",
+  "license": "MIT",
+  "environment": "client",
+  "mixins": [
+    "signcopy.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "minecraft": ">=1.16"
+  }
+}

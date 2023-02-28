@@ -6,10 +6,8 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.SignBlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -30,7 +28,7 @@ public class AbstractSignBlockMixin {
                 SignBlockEntity signBlockEntity = (SignBlockEntity) blockEntity;
 
                 // Using an accessor here to get the lines, didn't want to hardcode the number of lines for possible mod compat
-                Text[] lines = ((SignBlockEntityAccessor)signBlockEntity).getText();
+                Text[] lines = ((SignBlockEntityAccessor)signBlockEntity).getTexts();
 
                 StringBuilder textToCopy = new StringBuilder();
 
@@ -47,7 +45,7 @@ public class AbstractSignBlockMixin {
 
                 MinecraftClient.getInstance().keyboard.setClipboard(textToCopy.toString());
 
-                player.sendMessage(new LiteralText("The text from the sign was copied to your clipboard!").formatted(Formatting.AQUA), true);
+                player.sendMessage(Text.of("The text from the sign was copied to your clipboard!"), true);
             }
 
         }

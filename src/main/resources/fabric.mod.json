@@ -5,7 +5,8 @@
   "name": "SignCopy",
   "description": "A mod that allows you to copy text from signs.",
   "authors": [
-    "cominixo"
+    "cominixo",
+    "NetRyken"
   ],
   "icon": "assets/signcopy/icon.png",
   "license": "MIT",

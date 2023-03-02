@@ -22,10 +22,10 @@ public class AbstractSignBlockMixin {
 
     @Inject(method = "onUse", at = @At("HEAD"))
     public void onSignUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
-        if (player.isSneaking()) {
+        // Lazy approach to comparison, but it works for the moment.
+        if (player.getStackInHand(hand).toString().equals("1 air")) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof SignBlockEntity) {
-                SignBlockEntity signBlockEntity = (SignBlockEntity) blockEntity;
+            if (blockEntity instanceof SignBlockEntity signBlockEntity) {
 
                 // Using an accessor here to get the lines, didn't want to hardcode the number of lines for possible mod compat
                 Text[] lines = ((SignBlockEntityAccessor)signBlockEntity).getTexts();
@@ -47,7 +47,6 @@ public class AbstractSignBlockMixin {
 
                 player.sendMessage(Text.of("The text from the sign was copied to your clipboard!"), true);
             }
-
         }
     }
 }

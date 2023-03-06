@@ -22,8 +22,7 @@ public class AbstractSignBlockMixin {
 
     @Inject(method = "onUse", at = @At("HEAD"))
     public void onSignUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
-        // Lazy approach to comparison, but it works for the moment.
-        if (player.getStackInHand(hand).toString().equals("1 air")) {
+        if (player.getStackInHand(hand).isEmpty()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof SignBlockEntity signBlockEntity) {
 
